@@ -200,62 +200,25 @@ Keunggulan implementasi ini mencakup beberapa aspek kritis untuk aplikasi prakti
 
 ### **6.1 Kontribusi Penelitian**
 
-**Kontribusi Utama**:
+Penelitian ini memberikan beberapa kontribusi utama yang signifikan dalam bidang brain decoding dan computational neuroscience. Kontribusi pertama adalah implementasi arsitektur transformer untuk brain decoding yang belum banyak dieksplorasi sebelumnya, membuka avenue baru untuk penelitian di bidang ini. Kontribusi kedua adalah pencapaian performa tinggi dengan correlation 0.5969 yang dapat dikategorikan sebagai excellent untuk tugas brain decoding. Kontribusi ketiga adalah pengembangan sistem evaluasi komprehensif dengan lebih dari 6 metrics untuk assessment menyeluruh kualitas rekonstruksi. Kontribusi keempat adalah efisiensi model yang compact dengan training time yang singkat, membuat pendekatan ini praktis untuk implementasi. Kontribusi kelima adalah reproducibility yang tinggi dengan dokumentasi lengkap dan kode yang tersedia untuk komunitas peneliti.
 
-1. **Arsitektur Novel**: Implementasi transformer untuk brain decoding yang belum banyak dieksplorasi
-2. **Performa Tinggi**: Mencapai correlation 0.5969 yang excellent untuk brain decoding
-3. **Evaluasi Komprehensif**: Sistem evaluasi dengan 6+ metrics untuk assessment menyeluruh
-4. **Efficiency**: Model compact dengan training time singkat
-5. **Reproducibility**: Dokumentasi lengkap dan kode tersedia
-
-**Implikasi Ilmiah**:
-- **Neuroscience**: Pemahaman baru tentang representasi visual di otak
-- **AI/ML**: Demonstrasi efektivitas transformer untuk brain signal processing
-- **BCI**: Foundation untuk pengembangan brain-computer interface
-- **Medical**: Potensi aplikasi untuk diagnosis dan terapi neurologis
+Implikasi ilmiah dari penelitian ini mencakup berbagai bidang yang saling terkait. Dalam bidang neuroscience, penelitian ini memberikan pemahaman baru tentang representasi visual di otak dan bagaimana informasi visual diproses dalam sistem neural. Dalam bidang AI dan machine learning, penelitian ini mendemonstrasikan efektivitas transformer architecture untuk brain signal processing, membuka peluang aplikasi transformer di domain baru. Dalam bidang brain-computer interface, penelitian ini menyediakan foundation yang solid untuk pengembangan sistem BCI yang lebih advanced. Dalam bidang medical, penelitian ini menunjukkan potensi aplikasi untuk diagnosis dan terapi gangguan neurologis yang berkaitan dengan pemrosesan visual.
 
 ### **6.2 Analisis Kelebihan dan Keterbatasan**
 
-**Kelebihan**:
-1. **High Performance**: Correlation >0.59 excellent untuk brain decoding
-2. **Fast Training**: Konvergensi dalam 3 menit
-3. **Stable**: Tidak ada overfitting atau instability
-4. **Comprehensive**: Evaluasi dengan multiple metrics
-5. **Scalable**: Arsitektur dapat diadaptasi untuk dataset lebih besar
-6. **Documented**: Dokumentasi lengkap untuk reproducibility
+Analisis kelebihan menunjukkan beberapa aspek positif yang signifikan dari implementasi ini. Performa tinggi ditunjukkan dengan correlation >0.59 yang excellent untuk tugas brain decoding, melampaui benchmark yang ditetapkan untuk kategori very good. Training yang cepat dengan konvergensi dalam 3 menit menunjukkan efisiensi computational yang tinggi dan praktis untuk iterative development. Stabilitas training terjaga dengan baik tanpa indikasi overfitting atau instability yang sering terjadi pada neural network kompleks. Evaluasi komprehensif dengan multiple metrics memberikan assessment menyeluruh terhadap kualitas rekonstruksi dari berbagai perspektif. Skalabilitas arsitektur memungkinkan adaptasi untuk dataset yang lebih besar dan tugas brain decoding yang lebih kompleks. Dokumentasi lengkap memastikan reproducibility dan memfasilitasi pengembangan lanjutan oleh peneliti lain.
 
-**Keterbatasan**:
-1. **Dataset Size**: Terbatas pada 90 samples (typical untuk brain imaging)
-2. **Single Subject**: Belum ditest untuk cross-subject generalization
-3. **Stimulus Type**: Terbatas pada digit images (28×28 grayscale)
-4. **Temporal Resolution**: Belum memanfaatkan temporal dynamics fMRI
-5. **Individual Variability**: Belum menangani perbedaan individual brain anatomy
+Keterbatasan penelitian ini perlu diakui untuk memberikan perspektif yang balanced. Dataset size yang terbatas pada 90 samples merupakan karakteristik typical untuk brain imaging research yang memerlukan prosedur akuisisi kompleks dan mahal. Pengujian masih terbatas pada single subject dan belum divalidasi untuk cross-subject generalization yang penting untuk aplikasi praktis. Stimulus type terbatas pada digit images dengan resolusi 28×28 grayscale, belum mencakup stimulus visual yang lebih kompleks dan natural. Temporal resolution belum dimanfaatkan secara optimal untuk memanfaatkan temporal dynamics dalam sinyal fMRI. Individual variability dalam brain anatomy dan functional organization belum ditangani secara eksplisit dalam model.
 
-**Mitigasi Keterbatasan**:
-- **Data Augmentation**: Teknik augmentation untuk increase effective dataset size
-- **Transfer Learning**: Pre-training pada dataset lebih besar
-- **Multi-Subject**: Extension untuk cross-subject generalization
-- **Temporal Modeling**: Incorporation temporal dynamics dalam future work
+Mitigasi keterbatasan dapat dilakukan melalui beberapa pendekatan strategis. Data augmentation techniques dapat diimplementasikan untuk meningkatkan effective dataset size tanpa mengorbankan integritas brain signal. Transfer learning approach dapat diterapkan dengan pre-training pada dataset yang lebih besar untuk meningkatkan generalization. Extension untuk multi-subject analysis dapat dikembangkan untuk menangani cross-subject generalization. Incorporation temporal dynamics dapat menjadi focus untuk future work yang memanfaatkan aspek temporal dalam fMRI signals.
 
 ### **6.3 Implikasi dan Aplikasi**
 
-**Aplikasi Langsung**:
-1. **Research Tool**: Untuk neuroscience research tentang visual processing
-2. **BCI Development**: Foundation untuk brain-computer interface
-3. **Educational**: Demonstrasi brain decoding untuk pembelajaran
-4. **Benchmarking**: Baseline untuk future brain decoding research
+Aplikasi langsung dari penelitian ini mencakup beberapa domain yang dapat diimplementasikan dalam jangka pendek. Sebagai research tool, implementasi ini dapat digunakan untuk neuroscience research tentang visual processing dan pemahaman mekanisme representasi visual di otak. Sebagai foundation untuk BCI development, arsitektur ini dapat menjadi basis untuk pengembangan brain-computer interface yang lebih sophisticated. Dalam konteks educational, implementasi ini dapat berfungsi sebagai demonstrasi brain decoding untuk pembelajaran dan pemahaman konsep computational neuroscience. Sebagai benchmarking tool, hasil penelitian ini dapat menjadi baseline untuk future brain decoding research dan perbandingan method baru.
 
-**Aplikasi Potensial**:
-1. **Medical Diagnosis**: Deteksi gangguan visual processing
-2. **Assistive Technology**: Komunikasi untuk locked-in syndrome patients
-3. **Virtual Reality**: Brain-controlled VR interfaces
-4. **Prosthetics**: Visual feedback untuk neural prosthetics
+Aplikasi potensial dalam jangka menengah dan panjang menunjukkan prospek yang menjanjikan. Dalam medical diagnosis, teknologi ini dapat dikembangkan untuk deteksi gangguan visual processing dan assessment fungsi kognitif. Untuk assistive technology, implementasi dapat diadaptasi untuk komunikasi bagi patients dengan locked-in syndrome atau kondisi neurologis lainnya. Dalam virtual reality, brain-controlled VR interfaces dapat dikembangkan untuk immersive experience yang lebih natural. Untuk neural prosthetics, visual feedback system dapat diintegrasikan untuk meningkatkan functionality prosthetic devices.
 
-**Pengembangan Lanjutan**:
-1. **Scaling**: Extension ke dataset dan stimulus lebih kompleks
-2. **Real-time**: Implementasi untuk real-time brain decoding
-3. **Multi-modal**: Integration dengan EEG atau other brain signals
-4. **Personalization**: Adaptation untuk individual brain differences
+Pengembangan lanjutan dapat diarahkan pada beberapa aspek strategis. Scaling dapat dilakukan dengan extension ke dataset yang lebih besar dan stimulus visual yang lebih kompleks seperti natural images atau video. Real-time implementation dapat dikembangkan untuk aplikasi brain decoding yang memerlukan response time cepat. Multi-modal integration dengan EEG atau brain signals lainnya dapat meningkatkan accuracy dan robustness system. Personalization dapat dikembangkan untuk adaptation terhadap individual brain differences dan karakteristik unik setiap subject.
 
 ---
 
@@ -263,67 +226,31 @@ Keunggulan implementasi ini mencakup beberapa aspek kritis untuk aplikasi prakti
 
 ### **7.1 Ringkasan Pencapaian**
 
-Penelitian ini berhasil mengimplementasikan sistem brain decoder berbasis transformer yang mampu merekonstruksi stimulus visual dari sinyal fMRI dengan performa excellent. Pencapaian utama meliputi:
-
-1. **Performa Tinggi**: Correlation 0.5969 yang excellent untuk brain decoding
-2. **Arsitektur Efisien**: Model compact (1.9M parameters) dengan training cepat (3 menit)
-3. **Evaluasi Komprehensif**: Sistem evaluasi dengan 6+ metrics (MSE, PSNR, SSIM, FID, LPIPS, CLIP)
-4. **Kualitas Rekonstruksi**: Output images jelas dan recognizable sebagai digit
-5. **Dokumentasi Lengkap**: Publication-ready diagrams dan comprehensive documentation
+Penelitian ini berhasil mengimplementasikan sistem brain decoder berbasis transformer yang mampu merekonstruksi stimulus visual dari sinyal fMRI dengan performa excellent. Pencapaian utama yang diraih mencakup beberapa aspek kritis dalam brain decoding research. Performa tinggi ditunjukkan dengan correlation 0.5969 yang dapat dikategorikan sebagai excellent untuk tugas brain decoding, melampaui benchmark yang ditetapkan untuk kategori very good. Arsitektur yang efisien berhasil dikembangkan dengan model compact yang memiliki 1.9M parameters dan training time yang cepat hanya 3 menit, menunjukkan efisiensi computational yang tinggi. Sistem evaluasi komprehensif berhasil diimplementasikan dengan lebih dari 6 metrics yang mencakup MSE, PSNR, SSIM, FID, LPIPS, dan CLIP score untuk assessment menyeluruh. Kualitas rekonstruksi yang dihasilkan menunjukkan output images yang jelas dan mudah dikenali sebagai digit, memvalidasi efektivitas pendekatan. Dokumentasi lengkap telah disediakan termasuk publication-ready diagrams dan comprehensive documentation untuk memastikan reproducibility.
 
 ### **7.2 Kontribusi Ilmiah**
 
-**Kontribusi Teoritis**:
-- Demonstrasi efektivitas transformer architecture untuk brain signal processing
-- Pemahaman baru tentang mapping fMRI signals ke visual representations
-- Framework evaluasi komprehensif untuk brain decoding quality assessment
+Kontribusi teoritis dari penelitian ini memberikan advancement signifikan dalam pemahaman brain decoding. Demonstrasi efektivitas transformer architecture untuk brain signal processing membuka paradigma baru dalam computational neuroscience yang sebelumnya didominasi oleh CNN dan RNN. Pemahaman baru tentang mapping fMRI signals ke visual representations memberikan insight tentang bagaimana informasi visual direpresentasikan dan diproses dalam sistem neural. Framework evaluasi komprehensif untuk brain decoding quality assessment menyediakan standard baru untuk assessment kualitas rekonstruksi yang lebih holistic.
 
-**Kontribusi Praktis**:
-- Implementation yang efficient dan scalable untuk brain decoding
-- Tools dan methodology yang dapat diadaptasi untuk research lain
-- Baseline performance untuk future brain decoding studies
+Kontribusi praktis mencakup pengembangan tools dan methodology yang dapat diaplikasikan secara luas. Implementation yang efficient dan scalable untuk brain decoding memungkinkan adoption yang lebih luas oleh research community dengan resource computational yang terbatas. Tools dan methodology yang dikembangkan dapat diadaptasi untuk research lain dalam domain brain-computer interface dan computational neuroscience. Baseline performance yang ditetapkan dapat menjadi reference untuk future brain decoding studies dan comparison dengan method baru.
 
-**Kontribusi Metodologis**:
-- Integration multiple evaluation metrics untuk comprehensive assessment
-- Efficient training strategy untuk small brain imaging datasets
-- Reproducible implementation dengan detailed documentation
+Kontribusi metodologis memberikan framework yang robust untuk brain decoding research. Integration multiple evaluation metrics untuk comprehensive assessment menyediakan perspektif multi-dimensional terhadap kualitas rekonstruksi. Efficient training strategy untuk small brain imaging datasets mengatasi challenge utama dalam brain imaging research yang memiliki keterbatasan data. Reproducible implementation dengan detailed documentation memastikan bahwa penelitian ini dapat direplikasi dan dikembangkan lebih lanjut oleh peneliti lain.
 
 ### **7.3 Rekomendasi Pengembangan Lanjutan**
 
-**Short-term (6-12 bulan)**:
-1. **Cross-subject Validation**: Test generalization across different subjects
-2. **Stimulus Expansion**: Extension ke natural images atau complex visual stimuli
-3. **Temporal Modeling**: Incorporation temporal dynamics dalam fMRI signals
-4. **Real-time Implementation**: Development untuk real-time brain decoding
+Rekomendasi pengembangan lanjutan disusun dalam timeline yang realistis untuk memaksimalkan impact penelitian. Dalam jangka pendek 6-12 bulan, prioritas utama adalah cross-subject validation untuk menguji generalization across different subjects, yang merupakan requirement penting untuk aplikasi praktis. Stimulus expansion dapat dilakukan dengan extension ke natural images atau complex visual stimuli untuk meningkatkan applicability. Incorporation temporal dynamics dalam fMRI signals dapat dikembangkan untuk memanfaatkan informasi temporal yang belum dioptimalkan. Real-time implementation dapat menjadi focus untuk development aplikasi brain decoding yang memerlukan response time cepat.
 
-**Medium-term (1-2 tahun)**:
-1. **Multi-modal Integration**: Combination dengan EEG atau other brain signals
-2. **Large-scale Dataset**: Training pada dataset brain imaging yang lebih besar
-3. **Clinical Application**: Pilot study untuk medical diagnosis applications
-4. **BCI Integration**: Development brain-computer interface applications
+Dalam jangka menengah 1-2 tahun, pengembangan dapat diarahkan pada aspek yang lebih kompleks. Multi-modal integration dengan EEG atau brain signals lainnya dapat meningkatkan accuracy dan robustness system secara signifikan. Training pada large-scale dataset brain imaging yang lebih besar dapat meningkatkan generalization dan performa model. Clinical application melalui pilot study untuk medical diagnosis applications dapat memvalidasi utility praktis dalam setting medis. BCI integration dapat dikembangkan untuk aplikasi brain-computer interface yang lebih sophisticated.
 
-**Long-term (2-5 tahun)**:
-1. **Personalized Models**: Individual-specific brain decoding models
-2. **Complex Cognition**: Extension ke higher-level cognitive processes
-3. **Therapeutic Applications**: Development untuk neurorehabilitation
-4. **Commercial Applications**: Translation ke commercial BCI products
+Dalam jangka panjang 2-5 tahun, visi pengembangan dapat mencakup breakthrough yang lebih fundamental. Personalized models yang individual-specific dapat dikembangkan untuk menangani brain differences dan karakteristik unik setiap subject. Extension ke higher-level cognitive processes dapat membuka aplikasi untuk complex cognition beyond visual processing. Therapeutic applications untuk neurorehabilitation dapat memberikan impact langsung untuk patient care. Translation ke commercial BCI products dapat membawa teknologi ini ke aplikasi consumer dan medical devices.
 
 ### **7.4 Dampak dan Signifikansi**
 
-**Dampak Ilmiah**:
-- Advancement dalam computational neuroscience dan brain decoding
-- Contribution ke understanding visual processing mechanisms di otak
-- Foundation untuk future research dalam brain-computer interfaces
+Dampak ilmiah dari penelitian ini mencakup advancement yang signifikan dalam computational neuroscience dan brain decoding research. Contribution terhadap understanding visual processing mechanisms di otak memberikan insight baru tentang bagaimana sistem neural memproses dan merepresentasikan informasi visual. Foundation yang solid untuk future research dalam brain-computer interfaces membuka peluang pengembangan teknologi BCI yang lebih advanced dan practical.
 
-**Dampak Teknologi**:
-- Development efficient algorithms untuk brain signal processing
-- Tools dan frameworks untuk neuroscience research community
-- Potential applications dalam assistive technology dan medical devices
+Dampak teknologi meliputi development efficient algorithms untuk brain signal processing yang dapat diadaptasi untuk berbagai aplikasi. Tools dan frameworks yang dikembangkan dapat menjadi resource valuable untuk neuroscience research community dalam mengembangkan penelitian serupa. Potential applications dalam assistive technology dan medical devices menunjukkan prospek translational research yang dapat memberikan benefit langsung untuk society.
 
-**Dampak Sosial**:
-- Potential untuk membantu individuals dengan disabilities
-- Advancement dalam understanding human cognition dan consciousness
-- Foundation untuk future brain-computer communication technologies
+Dampak sosial yang diharapkan mencakup potential untuk membantu individuals dengan disabilities melalui pengembangan assistive technology yang lebih sophisticated. Advancement dalam understanding human cognition dan consciousness dapat memberikan insight fundamental tentang nature of human mind. Foundation untuk future brain-computer communication technologies dapat membuka era baru dalam human-computer interaction yang lebih natural dan intuitive.
 
 ---
 
@@ -331,47 +258,19 @@ Penelitian ini berhasil mengimplementasikan sistem brain decoder berbasis transf
 
 ### **8.1 Dokumentasi Teknis**
 
-**File Dokumentasi**:
-- `README.md`: Overview project dan quick start guide
-- `EVALUATION_README.md`: Comprehensive evaluation system documentation
-- `ARCHITECTURE_DIAGRAMS_README.md`: Publication-ready diagrams guide
-- `docs/project_summary.md`: Detailed development documentation
+Dokumentasi teknis yang komprehensif telah disediakan untuk memastikan reproducibility dan memfasilitasi pengembangan lanjutan. File dokumentasi utama mencakup `README.md` yang menyediakan overview project dan quick start guide untuk pengguna baru. `EVALUATION_README.md` berisi comprehensive evaluation system documentation yang menjelaskan semua metrics dan penggunaannya. `ARCHITECTURE_DIAGRAMS_README.md` menyediakan panduan untuk publication-ready diagrams yang dapat digunakan untuk publikasi. `docs/project_summary.md` berisi detailed development documentation yang mencakup seluruh proses pengembangan.
 
-**Source Code**:
-- `src/brain_decoder/`: Core implementation modules
-- `scripts/`: Evaluation dan utility scripts
-- `create_architecture_diagram.py`: Professional diagram generator
-- `test_evaluation.py`: Evaluation system testing
+Source code diorganisasi dalam struktur yang modular dan maintainable. Directory `src/brain_decoder/` berisi core implementation modules yang mencakup model, trainer, dan evaluation components. Directory `scripts/` berisi evaluation dan utility scripts untuk berbagai keperluan testing dan analysis. File `create_architecture_diagram.py` merupakan professional diagram generator yang menghasilkan publication-ready visualizations. File `test_evaluation.py` menyediakan evaluation system testing untuk memastikan correctness implementasi.
 
-**Output Files**:
-- `architecture_diagrams/`: Publication-ready diagrams (PDF/PNG)
-- `results/`: Training results dan visualizations
-- `evaluation_results/`: Comprehensive evaluation outputs
+Output files diorganisasi dalam struktur yang logical dan accessible. Directory `architecture_diagrams/` berisi publication-ready diagrams dalam format PDF dan PNG yang siap untuk submission journal. Directory `results/` berisi training results dan visualizations yang menunjukkan progress dan performa model. Directory `evaluation_results/` berisi comprehensive evaluation outputs yang mencakup semua metrics dan analysis results.
 
 ### **8.2 Reproducibility**
 
-**Requirements**:
-```bash
-pip install torch torchvision numpy matplotlib scipy scikit-learn scikit-image seaborn
-pip install lpips clip-by-openai transformers opencv-python  # Optional for advanced metrics
-```
+Reproducibility merupakan aspek kritis yang telah diperhatikan dalam implementasi ini. Requirements yang diperlukan mencakup basic packages seperti torch, torchvision, numpy, matplotlib, scipy, scikit-learn, scikit-image, dan seaborn untuk functionality dasar. Optional packages seperti lpips, clip-by-openai, transformers, dan opencv-python diperlukan untuk advanced metrics evaluation.
 
-**Quick Start**:
-```bash
-# Training dengan evaluation
-python run_training.py
+Quick start procedure telah disederhanakan untuk memudahkan adoption. Training dengan evaluation dapat dilakukan dengan menjalankan `python run_training.py` yang akan melakukan training dan evaluation secara otomatis. Comprehensive evaluation dapat dilakukan secara terpisah dengan `python scripts/comprehensive_evaluation.py` untuk analysis mendalam. Generation diagrams dapat dilakukan dengan `python create_architecture_diagram.py` untuk menghasilkan publication-ready visualizations.
 
-# Comprehensive evaluation
-python scripts/comprehensive_evaluation.py
-
-# Generate diagrams
-python create_architecture_diagram.py
-```
-
-**Hardware Requirements**:
-- **Minimum**: CPU dengan 4GB RAM
-- **Recommended**: GPU dengan 8GB VRAM
-- **Storage**: ~1GB untuk project files
+Hardware requirements dirancang untuk accessibility yang luas. Minimum requirement adalah CPU dengan 4GB RAM yang memungkinkan eksekusi pada hardware consumer-grade. Recommended setup adalah GPU dengan 8GB VRAM untuk training yang lebih cepat dan efficient. Storage requirement sekitar 1GB untuk project files termasuk dataset, model weights, dan output files.
 
 ### **8.3 Citation**
 
@@ -477,10 +376,7 @@ BrainDecoder(
 ====================================
 ```
 
-**Statistical Significance**:
-- Correlation p-value: < 0.001 (highly significant)
-- PSNR improvement over baseline: p < 0.01
-- SSIM improvement over baseline: p < 0.05
+Statistical significance testing menunjukkan bahwa hasil yang diperoleh memiliki validitas statistik yang kuat. Correlation p-value kurang dari 0.001 menunjukkan highly significant relationship antara predicted dan target images. PSNR improvement over baseline memiliki p-value kurang dari 0.01, mengindikasikan significant improvement dalam reconstruction quality. SSIM improvement over baseline memiliki p-value kurang dari 0.05, menunjukkan significant improvement dalam structural similarity.
 
 ### **Lampiran C: Kode Implementasi Utama**
 
@@ -542,49 +438,23 @@ class BrainDecoder(nn.Module):
 | Linear Regression | 2021 | 0.25 | 14.1 | Same | Baseline method |
 | Random Baseline | - | 0.02 | 8.5 | - | Random reconstruction |
 
-**Key Advantages**:
-1. **Highest Correlation**: 32% improvement over best previous method
-2. **Best PSNR**: 12% improvement in reconstruction quality
-3. **Efficiency**: 70% faster training than comparable methods
-4. **Stability**: No hyperparameter tuning required
+Keunggulan utama dari method yang dikembangkan menunjukkan superioritas dalam berbagai aspek. Highest correlation yang dicapai menunjukkan 32% improvement over best previous method, mengindikasikan significant advancement dalam accuracy. Best PSNR yang diraih menunjukkan 12% improvement dalam reconstruction quality dibandingkan dengan state-of-the-art methods. Efficiency yang tinggi ditunjukkan dengan 70% faster training time dibandingkan comparable methods, membuat approach ini lebih practical. Stability yang excellent ditunjukkan dengan tidak diperlukannya hyperparameter tuning yang ekstensif, membuat implementation lebih robust dan user-friendly.
 
 ### **Lampiran E: Analisis Error dan Failure Cases**
 
-**Error Analysis**:
-1. **Low PSNR Cases** (PSNR < 15 dB):
-   - Typically occur with digits 6, 8, 9 (complex shapes)
-   - May be due to individual brain variability
-   - Still maintain recognizable digit structure
+Analisis error menunjukkan pola yang dapat dipahami dan diantisipasi dalam brain decoding research. Low PSNR cases dengan nilai kurang dari 15 dB typically terjadi pada digits dengan complex shapes seperti 6, 8, dan 9 yang memiliki struktur visual yang lebih kompleks. Hal ini mungkin disebabkan oleh individual brain variability dalam memproses stimulus visual yang kompleks. Meskipun demikian, hasil rekonstruksi masih mempertahankan recognizable digit structure yang memungkinkan identifikasi.
 
-2. **High Reconstruction Error**:
-   - Correlation with fMRI signal quality
-   - Some subjects may have different visual processing patterns
-   - Temporal alignment issues in fMRI acquisition
+High reconstruction error dapat dikaitkan dengan beberapa faktor teknis dan biologis. Correlation dengan fMRI signal quality menunjukkan bahwa kualitas akuisisi data mempengaruhi hasil rekonstruksi. Beberapa subjects mungkin memiliki different visual processing patterns yang tidak tertangkap optimal oleh model. Temporal alignment issues dalam fMRI acquisition juga dapat mempengaruhi kualitas mapping antara stimulus dan brain response.
 
-**Failure Mode Analysis**:
-- **Complete Failure**: 0% (all outputs recognizable)
-- **Poor Quality**: ~10% (PSNR < 15 dB but still recognizable)
-- **Good Quality**: ~60% (PSNR 15-25 dB)
-- **Excellent Quality**: ~30% (PSNR > 25 dB)
+Failure mode analysis memberikan perspektif yang encouraging tentang robustness model. Complete failure rate adalah 0%, yang berarti semua outputs masih recognizable sebagai digit meskipun dengan kualitas yang bervariasi. Poor quality cases sekitar 10% dengan PSNR kurang dari 15 dB namun masih recognizable. Good quality cases mencakup sekitar 60% dengan PSNR 15-25 dB yang menunjukkan reconstruction quality yang acceptable. Excellent quality cases mencapai sekitar 30% dengan PSNR lebih dari 25 dB yang menunjukkan high-quality reconstruction.
 
 ### **Lampiran F: Computational Requirements**
 
-**Training Requirements**:
-- **Memory**: 2.1 GB GPU memory (batch size 2)
-- **Compute**: ~180 GFLOPS per forward pass
-- **Time**: 3.2 minutes for 20 epochs on RTX 3080
-- **Storage**: 15 MB for model weights
+Training requirements menunjukkan efisiensi computational yang tinggi untuk brain decoding task. Memory requirement sebesar 2.1 GB GPU memory dengan batch size 2 memungkinkan training pada hardware consumer-grade yang accessible. Compute requirement sekitar 180 GFLOPS per forward pass menunjukkan computational complexity yang reasonable. Training time hanya 3.2 menit untuk 20 epochs pada RTX 3080 menunjukkan efficiency yang excellent. Storage requirement 15 MB untuk model weights menunjukkan model yang compact dan portable.
 
-**Inference Requirements**:
-- **Memory**: 512 MB GPU memory
-- **Latency**: ~50ms per sample
-- **Throughput**: ~20 samples/second
-- **CPU Mode**: 200ms per sample (acceptable for offline analysis)
+Inference requirements dirancang untuk deployment yang practical dan efficient. Memory requirement 512 MB GPU memory untuk inference memungkinkan deployment pada hardware dengan resource terbatas. Latency sekitar 50ms per sample memungkinkan near real-time processing untuk aplikasi interactive. Throughput sekitar 20 samples per second adequate untuk batch processing applications. CPU mode dengan 200ms per sample masih acceptable untuk offline analysis applications yang tidak memerlukan real-time processing.
 
-**Scalability Analysis**:
-- **Linear scaling** with number of voxels
-- **Quadratic scaling** with sequence length (transformer limitation)
-- **Memory efficient** for typical fMRI datasets (<10k voxels)
+Scalability analysis memberikan insight tentang behavior model pada scale yang berbeda. Linear scaling dengan number of voxels menunjukkan bahwa model dapat diadaptasi untuk dataset dengan dimensi yang lebih besar tanpa exponential increase dalam computational cost. Quadratic scaling dengan sequence length merupakan limitation inherent dari transformer architecture yang perlu dipertimbangkan untuk aplikasi dengan sequence yang panjang. Memory efficiency untuk typical fMRI datasets dengan kurang dari 10k voxels menunjukkan bahwa approach ini practical untuk mayoritas brain imaging applications.
 
 ---
 
@@ -614,18 +484,9 @@ class BrainDecoder(nn.Module):
 
 ## **UCAPAN TERIMA KASIH**
 
-Penelitian ini tidak akan berhasil tanpa dukungan dari berbagai pihak. Ucapan terima kasih disampaikan kepada:
+Penelitian ini tidak akan berhasil tanpa dukungan dari berbagai pihak yang telah memberikan kontribusi signifikan. Ucapan terima kasih yang mendalam disampaikan kepada komunitas open source yang telah menyediakan tools dan libraries yang memungkinkan implementasi penelitian ini. PyTorch team layak mendapat apresiasi khusus untuk framework deep learning yang excellent dan comprehensive yang menjadi foundation implementasi. Neuroscience community patut dihargai atas dataset dan metodologi yang telah dikembangkan dan dibagikan untuk kemajuan ilmu pengetahuan. Research community secara luas juga berkontribusi melalui sharing knowledge dan best practices yang memungkinkan penelitian ini mencapai kualitas yang tinggi.
 
-1. **Komunitas Open Source**: Untuk tools dan libraries yang memungkinkan implementasi ini
-2. **PyTorch Team**: Untuk framework deep learning yang excellent
-3. **Neuroscience Community**: Untuk dataset dan metodologi yang telah dikembangkan
-4. **Research Community**: Untuk sharing knowledge dan best practices
-
-**Kontribusi Khusus**:
-- Dataset `digit69_28x28.mat` dari neuroscience research community
-- PyTorch framework untuk deep learning implementation
-- Matplotlib dan Seaborn untuk visualization
-- CLIP dan LPIPS models untuk advanced evaluation metrics
+Kontribusi khusus yang perlu diakui mencakup beberapa aspek kritis. Dataset `digit69_28x28.mat` dari neuroscience research community menyediakan foundation data yang essential untuk penelitian brain decoding. PyTorch framework memberikan infrastructure yang robust untuk deep learning implementation dengan flexibility dan performance yang excellent. Matplotlib dan Seaborn menyediakan visualization capabilities yang memungkinkan analysis dan presentation hasil yang comprehensive. CLIP dan LPIPS models memberikan advanced evaluation metrics yang memungkinkan assessment kualitas rekonstruksi yang lebih sophisticated dan sesuai dengan persepsi manusia.
 
 ---
 
