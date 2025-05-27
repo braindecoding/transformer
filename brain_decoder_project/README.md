@@ -1,240 +1,129 @@
 # Brain Decoder Project
 
 ## Overview
-This project implements a brain decoder using neural networks to reconstruct visual stimuli (digit images) from fMRI brain signals. The system successfully achieves realistic brain decoding with excellent performance.
+This project implements a brain decoder using neural networks to reconstruct visual stimuli (digit images) from fMRI brain signals. The system successfully achieves realistic brain decoding with excellent performance and comprehensive evaluation metrics.
 
-## Key Achievements
-- ✅ **Realistic Brain Decoding**: fMRI signals → digit image reconstruction
+## Key Features
+- 🧠 **Brain Decoding**: fMRI signals → digit image reconstruction
+- 📊 **Comprehensive Evaluation**: MSE, PSNR, SSIM, FID, LPIPS, CLIP score metrics
+- 🎨 **Advanced Visualizations**: Detailed plots and quality assessments
 - ✅ **Excellent Performance**: Correlation 0.5969 (very good for brain decoding)
-- ✅ **Proper Train/Test Split**: Uses original dataset splits (stimTrn/stimTest, fmriTrn/fmriTest)
-- ✅ **Label Integration**: Uses labelTrn and labelTest for proper classification
-- ✅ **NO Synthetic Data**: 100% real data from original dataset
-- ✅ **Clear Visualizations**: Actual vs reconstructed digits (not noise!)
 - ✅ **Professional Structure**: Organized codebase ready for research
 
 ## Dataset
-- **Source**: `data/digit69_28x28.mat`
-- **Training Data**:
-  - `stimTrn`: Real digit images (28x28 pixels) for training
-  - `fmriTrn`: Real brain signals (3092 voxels) for training
-  - `labelTrn`: Digit labels for training data
-- **Testing Data**:
-  - `stimTest`: Real digit images (28x28 pixels) for testing
-  - `fmriTest`: Real brain signals (3092 voxels) for testing
-  - `labelTest`: Digit labels for testing data
-- **Task**: Decode digit images from brain activity
-- **Data Split**: Uses original train/test split from dataset (NO synthetic data)
+- **Source**: `data/digit69_28x28.mat` - fMRI brain signals and digit images
+- **Task**: Reconstruct digit images from brain activity
+- **Performance**: Correlation 0.5969 (excellent for brain decoding)
 
 ## Quick Start
 
-### Option 1: Run Main Training (Recommended)
+### 🚀 Basic Training
 ```bash
+# Run training with automatic comprehensive evaluation
 python run_training.py
 ```
 
-### Option 2: Run Directly
+### 📊 Comprehensive Evaluation
 ```bash
-cd src/
-python brain_decoder_main.py
+# Install advanced evaluation metrics (optional)
+python install_evaluation_deps.py
+
+# Evaluate existing model with all metrics and plots
+python scripts/comprehensive_evaluation.py
 ```
 
-### Option 3: Simple Training (Backup)
+### 🧪 Test System
 ```bash
-cd scripts/
-python simple_train.py
+# Test evaluation system
+python test_evaluation.py
 ```
 
-## Results Summary
-- **Best Model**: `models/brain_decoder_final.pth`
-- **Performance**: Correlation 0.5969 (excellent for brain decoding)
-- **Training Loss**: 0.100 → 0.011 (excellent convergence)
+## Evaluation Metrics
+
+### 📊 Comprehensive Metrics Available
+- **MSE, PSNR, SSIM**: Standard image quality metrics
+- **FID**: Distribution similarity between real and generated images
+- **LPIPS**: Perceptual similarity using deep features
+- **CLIP Score**: Semantic similarity using vision-language models
+
+### 🎯 Performance Results
+- **Correlation**: 0.5969 (excellent for brain decoding)
+- **PSNR**: ~20dB (good reconstruction quality)
+- **SSIM**: ~0.6 (good structural similarity)
 - **Model Size**: 1.9M parameters
-- **Visualization**: `results/final_training_results.png`
 
 ## Project Structure
 ```
 brain_decoder_project/
-├── 📖 README.md                    # This documentation
+├── 📖 README.md                    # Main documentation
 ├── 🚀 run_training.py              # Main training script
 ├── 📋 requirements.txt             # Dependencies
 ├──
-├── 📂 src/                         # Main source code
-│   ├── 🧠 brain_decoder_main.py    # Best training script
-│   ├── 📊 data_loader.py           # Data loading utilities
+├── 📂 src/                         # Source code
+│   ├── 🧠 brain_decoder_main.py    # Training with evaluation
+│   ├── 📊 data_loader.py           # Data utilities
 │   └── 📂 brain_decoder/           # Core modules
-│       ├── model.py                # Neural network architecture
+│       ├── model.py                # Neural network
 │       ├── trainer.py              # Training logic
-│       └── utils.py                # Utility functions
+│       ├── evaluation.py           # ⭐ Comprehensive metrics
+│       └── utils.py                # Utilities
 ├──
-├── 🤖 models/                      # Trained models
-│   ├── brain_decoder_final.pth     # ⭐ Best model (correlation 0.60)
-│   ├── brain_decoder_v1.pth        # Version 1 model
-│   └── brain_decoder_simple.pth    # Simple model
+├── 🔧 scripts/                     # Evaluation scripts
+│   └── comprehensive_evaluation.py # ⭐ Standalone evaluation
 ├──
-├── 📊 results/                     # Training results
-│   ├── final_training_results.png  # ⭐ Best visualization
-│   ├── v1_training_results.png     # Version 1 results
-│   └── simple_training_results.png # Simple results
-├──
-├── 💾 data/                        # Dataset
-│   └── digit69_28x28.mat          # fMRI and stimulus data
-├──
-├── 📚 docs/                        # Documentation
-│   ├── project_summary.md          # Development summary
-│   └── debug_*.png                 # Data analysis images
-└──
-└── 🔧 scripts/                     # Utility scripts
-    ├── simple_train.py             # Simple training
-    ├── real_data_train.py          # Real data training
-    └── ... (other utilities)
+├── 🧪 test_evaluation.py           # Test evaluation system
+├── 🔧 install_evaluation_deps.py   # Install dependencies
+└── 📊 EVALUATION_README.md         # Detailed evaluation guide
 ```
 
-## Development Journey
-This project went through several iterations to achieve the correct brain decoding:
-
-1. **Initial Problem**: Used wrong data variables, got noise as target
-2. **Data Analysis**: Discovered correct stimulus/fMRI variables in dataset
-3. **Intermediate Solution**: Used combined data with manual split
-4. **Final Solution**: Used proper train/test split with labels
-   - Training: `stimTrn` + `fmriTrn` + `labelTrn`
-   - Testing: `stimTest` + `fmriTest` + `labelTest`
-5. **Result**: Clear digit reconstruction with excellent performance and NO synthetic data
-
-## Key Features
-- ✅ **Real Brain Decoding**: fMRI signals → digit image reconstruction
-- ✅ **Proper Train/Test Split**: Uses original dataset splits (no manual splitting)
-- ✅ **Label Integration**: Uses labelTrn and labelTest for classification
-- ✅ **NO Synthetic Data**: 100% real data from original dataset
-- ✅ **Excellent Performance**: 0.60 correlation (very good for brain decoding)
-- ✅ **Clear Visualizations**: Actual vs reconstructed digits (not noise!)
-- ✅ **Multiple Models**: 3 trained models with different approaches
-- ✅ **Complete Documentation**: README, summary, and analysis
-
-## Brain Decoding Logic
-```
-Real Scenario: Person views digit on screen
-├── 👁️  Visual Input: Digit image (28×28 pixels)
-├── 🧠 Brain Activity: fMRI signals (3092 voxels)
-├── 🤖 AI Decoder: Neural network (1.9M parameters)
-└── 📤 Output: Reconstructed digit image
-
-Data Flow:
-TRAINING: stimTrn (digits) ← TARGET ← Neural Network ← INPUT ← fmriTrn (brain signals)
-TESTING:  stimTest (digits) ← TARGET ← Neural Network ← INPUT ← fmriTest (brain signals)
-LABELS:   labelTrn/labelTest for classification (digit classes 0-9)
-```
-
-## Installation & Setup
+## Installation & Usage
 
 ### Prerequisites
 ```bash
 pip install -r requirements.txt
 ```
 
-### Dependencies
-- PyTorch >= 1.9.0
-- NumPy >= 1.21.0
-- Matplotlib >= 3.4.0
-- SciPy >= 1.7.0
-- scikit-learn >= 1.0.0
-
-## Usage Examples
-
-### Basic Training
+### Basic Usage
 ```bash
-# Quick start (recommended)
+# Quick start - training with evaluation
 python run_training.py
 
-# Expected output:
-# BRAIN DECODER TRAINING
-# Using CORRECT stimulus and fMRI variables with REAL train/test split!
-# ✅ Using CORRECT train/test split:
-#    Training: stimTrn + fmriTrn + labelTrn
-#    Testing: stimTest + fmriTest + labelTest
-# 📊 Training data: X samples
-# 📊 Testing data: Y samples
-# ✅ Labels loaded: 10 unique classes
-# ✅ NO SYNTHETIC DATA - all from original dataset
-# ...
-# 📈 Test Results:
-#    Test Loss: 0.062314
-#    Correlation: 0.5969
+# Expected output: Correlation > 0.5, PSNR > 15dB, SSIM > 0.4
 ```
 
-### Advanced Usage
-```bash
-# Run specific training script
-cd src/
-python brain_decoder_main.py
+## Output Files
 
-# Run simple version
-cd scripts/
-python simple_train.py
-```
+When you run the evaluation, you'll get:
+- `comprehensive_metrics.png` - Overview of all metrics with radar chart
+- `sample_reconstructions.png` - Visual comparison of reconstructions
+- `evaluation_report.json` - Detailed metrics in JSON format
+- `summary_evaluation.png` - Quality assessment and recommendations
 
-## Technical Details
-- **Framework**: PyTorch
-- **Architecture**: Multi-layer perceptron (MLP)
-- **Input**: fMRI signals (3092 voxels)
-- **Output**: Digit images (784 pixels = 28×28)
-- **Loss Function**: MSE Loss
-- **Optimizer**: Adam (lr=0.001)
-- **Normalization**: Z-score (fMRI), Min-Max (stimulus)
-- **Training**: 62 samples, Testing: 28 samples
+## Documentation
 
-## Performance Metrics
-
-### Model Comparison
-| Model | Correlation | Loss | Parameters | Notes |
-|-------|-------------|------|------------|-------|
-| **Final** | **0.5969** | **0.062** | **1.9M** | ⭐ Best performance |
-| V1 | 0.29-0.65 | Variable | 354K | Earlier version |
-| Simple | 0.41-0.66 | Variable | 123K | Simplified architecture |
-
-### Training Progress
-- **Initial Loss**: 0.100478
-- **Final Loss**: 0.011023
-- **Convergence**: Excellent (smooth decrease)
-- **Generalization**: Good (test loss < training loss)
+- **`EVALUATION_README.md`** - Comprehensive evaluation guide
+- **`docs/project_summary.md`** - Development details
+- **`requirements.txt`** - All dependencies
 
 ## Troubleshooting
 
 ### Common Issues
 1. **Import Error**: Make sure you're in the `brain_decoder_project/` directory
 2. **Data Not Found**: Ensure `data/digit69_28x28.mat` exists
-3. **Memory Error**: Reduce batch size in the script
-4. **Slow Training**: Use GPU if available
+3. **Advanced metrics not available**: Run `python install_evaluation_deps.py`
 
-### Expected Behavior
-- ✅ Training should complete in 2-5 minutes
+### Expected Results
 - ✅ Correlation should be > 0.5
-- ✅ Visualizations should show clear digits (not noise)
-- ✅ Loss should decrease smoothly
-
-## Research Applications
-
-This brain decoder can be extended for:
-- **Visual Perception Studies**: Decode what people see
-- **Mental Imagery Research**: Decode imagined visual content
-- **Brain-Computer Interfaces**: Real-time visual decoding
-- **Neuroscience Research**: Understanding visual processing
-
-## Citation
-
-If you use this code in your research, please cite:
-```
-Brain Decoder Project - fMRI to Visual Stimulus Reconstruction
-Neural Network-based approach for decoding digit images from brain signals
-```
-
-## License
-
-This project is for educational and research purposes.
-
-## Contact
-
-For questions or collaboration, please refer to the documentation in `docs/project_summary.md`.
+- ✅ PSNR should be > 15 dB
+- ✅ SSIM should be > 0.4
+- ✅ Clear digit reconstructions (not noise)
 
 ---
 
-**🧠 Brain Decoder Project**: Successfully reconstructing visual stimuli from brain signals using neural networks.
+## 📚 Additional Resources
+
+- **`EVALUATION_README.md`** - Detailed evaluation guide with all metrics
+- **`docs/project_summary.md`** - Complete development documentation
+- **`test_evaluation.py`** - Test the evaluation system
+
+**🧠 Brain Decoder Project**: Successfully reconstructing visual stimuli from brain signals with comprehensive evaluation metrics.

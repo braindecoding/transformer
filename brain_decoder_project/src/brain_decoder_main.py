@@ -15,6 +15,14 @@ from skimage.metrics import structural_similarity as ssim
 from scipy import linalg
 import warnings
 
+# Import comprehensive evaluation
+try:
+    from brain_decoder.evaluation import EvaluationMetrics
+    COMPREHENSIVE_EVAL_AVAILABLE = True
+except ImportError:
+    print("⚠️  Comprehensive evaluation not available. Using basic metrics only.")
+    COMPREHENSIVE_EVAL_AVAILABLE = False
+
 class BrainDataset(Dataset):
     def __init__(self, fmri_data, stimulus_data):
         self.fmri_data = torch.FloatTensor(fmri_data)
@@ -276,115 +284,77 @@ def train_correct_brain_decoder():
             predictions = model(test_fmri_tensor)
             test_loss = criterion(predictions, test_stimulus_tensor)
 
-            # Compute correlation
-            pred_flat = predictions.numpy().flatten()
-            target_flat = test_stimulus_tensor.numpy().flatten()
-            correlation = np.corrcoef(pred_flat, target_flat)[0, 1]
-
-            # Compute comprehensive reconstruction metrics
+            # Compute comprehensive evaluation metrics
             print(f"📊 Computing comprehensive reconstruction metrics...")
 
-            # Prepare images for metrics (convert to 0-255 range)
-            target_imgs = (test_stimulus_tensor.numpy() * 255).astype(np.uint8)
-            pred_imgs = (predictions.numpy() * 255).astype(np.uint8)
+            predictions_np = predictions.numpy()
+            target_np = test_stimulus_tensor.numpy()
 
-            # Calculate metrics for all test samples
-            psnr_scores = []
-            ssim_scores = []
+            if COMPREHENSIVE_EVAL_AVAILABLE:
+                # Use comprehensive evaluation
+                evaluator = EvaluationMetrics()
+                results = evaluator.evaluate_all(predictions_np, target_np)
 
-            for i in range(len(target_imgs)):
-                target_img = target_imgs[i].reshape(28, 28)
-                pred_img = pred_imgs[i].reshape(28, 28)
+                # Print comprehensive results
+                evaluator.print_results(results)
 
-                # PSNR
-                try:
-                    psnr_val = psnr(target_img, pred_img, data_range=255)
-                    psnr_scores.append(psnr_val)
-                except:
-                    psnr_scores.append(0)
+                # Create comprehensive plots
+                print(f"🎨 Creating comprehensive evaluation plots...")
 
-                # SSIM
-                try:
-                    ssim_val = ssim(target_img, pred_img, data_range=255)
-                    ssim_scores.append(ssim_val)
-                except:
-                    ssim_scores.append(0)
+                # Metrics plot
+                metrics_fig = evaluator.plot_metrics(results,
+                                                   save_path="correct_results/comprehensive_metrics.png",
+                                                   show=False)
 
-            # Calculate FID (simplified version for small dataset)
-            def calculate_simple_fid(real_imgs, fake_imgs):
-                """Simplified FID calculation for small datasets"""
-                try:
-                    # Flatten images
-                    real_flat = real_imgs.reshape(real_imgs.shape[0], -1)
-                    fake_flat = fake_imgs.reshape(fake_imgs.shape[0], -1)
+                # Sample reconstructions plot
+                samples_fig = evaluator.plot_sample_reconstructions(
+                    predictions_np, target_np,
+                    num_samples=min(6, len(predictions_np)),
+                    save_path="correct_results/sample_reconstructions.png",
+                    show=False
+                )
 
-                    # Calculate means and covariances
-                    mu1, sigma1 = real_flat.mean(axis=0), np.cov(real_flat, rowvar=False)
-                    mu2, sigma2 = fake_flat.mean(axis=0), np.cov(fake_flat, rowvar=False)
+                print(f"✅ Comprehensive evaluation completed!")
+                print(f"📁 Additional plots saved:")
+                print(f"   - comprehensive_metrics.png")
+                print(f"   - sample_reconstructions.png")
 
-                    # Calculate FID
-                    diff = mu1 - mu2
-                    covmean = linalg.sqrtm(sigma1.dot(sigma2))
+            else:
+                # Fallback to basic evaluation
+                pred_flat = predictions_np.flatten()
+                target_flat = target_np.flatten()
+                correlation = np.corrcoef(pred_flat, target_flat)[0, 1]
 
-                    if np.iscomplexobj(covmean):
-                        covmean = covmean.real
+                # Basic PSNR and SSIM
+                target_imgs = (target_np * 255).astype(np.uint8)
+                pred_imgs = (predictions_np * 255).astype(np.uint8)
 
-                    fid = diff.dot(diff) + np.trace(sigma1 + sigma2 - 2*covmean)
-                    return fid
-                except:
-                    return float('inf')
+                psnr_scores = []
+                ssim_scores = []
 
-            fid_score = calculate_simple_fid(target_imgs, pred_imgs)
+                for i in range(len(target_imgs)):
+                    target_img = target_imgs[i].reshape(28, 28)
+                    pred_img = pred_imgs[i].reshape(28, 28)
 
-            # Calculate LPIPS (simplified perceptual distance)
-            def calculate_simple_lpips(real_imgs, fake_imgs):
-                """Simplified perceptual distance calculation"""
-                try:
-                    # Simple perceptual distance based on gradient differences
-                    real_grad_x = np.gradient(real_imgs, axis=2)
-                    real_grad_y = np.gradient(real_imgs, axis=1)
-                    fake_grad_x = np.gradient(fake_imgs, axis=2)
-                    fake_grad_y = np.gradient(fake_imgs, axis=1)
+                    try:
+                        psnr_val = psnr(target_img, pred_img, data_range=255)
+                        psnr_scores.append(psnr_val)
+                    except:
+                        psnr_scores.append(0)
 
-                    grad_diff_x = np.mean((real_grad_x - fake_grad_x) ** 2)
-                    grad_diff_y = np.mean((real_grad_y - fake_grad_y) ** 2)
+                    try:
+                        ssim_val = ssim(target_img, pred_img, data_range=255)
+                        ssim_scores.append(ssim_val)
+                    except:
+                        ssim_scores.append(0)
 
-                    return np.sqrt(grad_diff_x + grad_diff_y)
-                except:
-                    return float('inf')
-
-            lpips_score = calculate_simple_lpips(target_imgs.reshape(-1, 28, 28),
-                                               pred_imgs.reshape(-1, 28, 28))
-
-            # Calculate CLIP score (simplified semantic similarity)
-            def calculate_simple_clip_score(real_imgs, fake_imgs):
-                """Simplified semantic similarity score"""
-                try:
-                    # Simple feature-based similarity
-                    real_features = real_imgs.reshape(real_imgs.shape[0], -1)
-                    fake_features = fake_imgs.reshape(fake_imgs.shape[0], -1)
-
-                    # Normalize features
-                    real_norm = real_features / (np.linalg.norm(real_features, axis=1, keepdims=True) + 1e-8)
-                    fake_norm = fake_features / (np.linalg.norm(fake_features, axis=1, keepdims=True) + 1e-8)
-
-                    # Calculate cosine similarity
-                    similarities = np.sum(real_norm * fake_norm, axis=1)
-                    return np.mean(similarities)
-                except:
-                    return 0.0
-
-            clip_score = calculate_simple_clip_score(target_imgs, pred_imgs)
-
-            print(f"📈 Test Results:")
-            print(f"   Test Loss: {test_loss.item():.6f}")
-            print(f"   Correlation: {correlation:.4f}")
-            print(f"\n📊 Reconstruction Quality Metrics:")
-            print(f"   PSNR: {np.mean(psnr_scores):.2f} ± {np.std(psnr_scores):.2f} dB")
-            print(f"   SSIM: {np.mean(ssim_scores):.4f} ± {np.std(ssim_scores):.4f}")
-            print(f"   FID: {fid_score:.2f}")
-            print(f"   LPIPS (simplified): {lpips_score:.4f}")
-            print(f"   CLIP Score (simplified): {clip_score:.4f}")
+                print(f"📈 Test Results (Basic Evaluation):")
+                print(f"   Test Loss: {test_loss.item():.6f}")
+                print(f"   Correlation: {correlation:.4f}")
+                print(f"   PSNR: {np.mean(psnr_scores):.2f} ± {np.std(psnr_scores):.2f} dB")
+                print(f"   SSIM: {np.mean(ssim_scores):.4f} ± {np.std(ssim_scores):.4f}")
+                print(f"\n💡 Install additional packages for comprehensive evaluation:")
+                print(f"   pip install lpips clip-by-openai transformers opencv-python")
 
         else:
             print("⚠️  No test data available")
