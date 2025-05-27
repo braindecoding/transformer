@@ -121,6 +121,7 @@ python run_training.py
 
 ## Documentation
 
+- **`LAPORAN.md`** - 📋 **Laporan Disertasi Lengkap** (Bahasa Indonesia)
 - **`EVALUATION_README.md`** - Comprehensive evaluation guide
 - **`ARCHITECTURE_DIAGRAMS_README.md`** - Publication diagram guide
 - **`docs/project_summary.md`** - Development details
@@ -143,6 +144,7 @@ python run_training.py
 
 ## 📚 Additional Resources
 
+- **`LAPORAN.md`** - 📋 **Laporan Disertasi Lengkap** (Bahasa Indonesia)
 - **`EVALUATION_README.md`** - Detailed evaluation guide with all metrics
 - **`ARCHITECTURE_DIAGRAMS_README.md`** - Publication-ready diagram guide
 - **`docs/project_summary.md`** - Complete development documentation
