@@ -38,6 +38,15 @@ python scripts/comprehensive_evaluation.py
 python test_evaluation.py
 ```
 
+### 🎨 Generate Architecture Diagrams
+```bash
+# Create publication-ready diagrams
+python create_architecture_diagram.py
+
+# View generated diagrams
+python view_diagrams.py
+```
+
 ## Evaluation Metrics
 
 ### 📊 Comprehensive Metrics Available
@@ -71,9 +80,13 @@ brain_decoder_project/
 ├── 🔧 scripts/                     # Evaluation scripts
 │   └── comprehensive_evaluation.py # ⭐ Standalone evaluation
 ├──
+├── 🎨 architecture_diagrams/       # Publication-ready diagrams
 ├── 🧪 test_evaluation.py           # Test evaluation system
 ├── 🔧 install_evaluation_deps.py   # Install dependencies
-└── 📊 EVALUATION_README.md         # Detailed evaluation guide
+├── 🎨 create_architecture_diagram.py # Generate diagrams
+├── 👁️ view_diagrams.py             # View diagrams
+├── 📊 EVALUATION_README.md         # Detailed evaluation guide
+└── 🎨 ARCHITECTURE_DIAGRAMS_README.md # Diagram documentation
 ```
 
 ## Installation & Usage
@@ -93,15 +106,23 @@ python run_training.py
 
 ## Output Files
 
-When you run the evaluation, you'll get:
+### 📊 Evaluation Results
 - `comprehensive_metrics.png` - Overview of all metrics with radar chart
 - `sample_reconstructions.png` - Visual comparison of reconstructions
 - `evaluation_report.json` - Detailed metrics in JSON format
 - `summary_evaluation.png` - Quality assessment and recommendations
 
+### 🎨 Architecture Diagrams (Publication-Ready)
+- `brain_decoder_architecture.pdf/.png` - Main system overview
+- `detailed_network_architecture.pdf/.png` - Network layer details
+- `data_flow_diagram.pdf/.png` - Processing pipeline
+- `transformer_architecture_detail.pdf/.png` - Transformer details
+- `evaluation_metrics_diagram.pdf/.png` - Comprehensive evaluation
+
 ## Documentation
 
 - **`EVALUATION_README.md`** - Comprehensive evaluation guide
+- **`ARCHITECTURE_DIAGRAMS_README.md`** - Publication diagram guide
 - **`docs/project_summary.md`** - Development details
 - **`requirements.txt`** - All dependencies
 
@@ -123,6 +144,7 @@ When you run the evaluation, you'll get:
 ## 📚 Additional Resources
 
 - **`EVALUATION_README.md`** - Detailed evaluation guide with all metrics
+- **`ARCHITECTURE_DIAGRAMS_README.md`** - Publication-ready diagram guide
 - **`docs/project_summary.md`** - Complete development documentation
 - **`test_evaluation.py`** - Test the evaluation system
 
